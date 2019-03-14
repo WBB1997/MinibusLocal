@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/activity_main_top_width"
+    android:layout_height="@dimen/activity_main_top_height">
+
+    <RelativeLayout
+        android:id="@+id/topFragment_center_layout"
+        android:layout_width="@dimen/topFragment_center_layout_width"
+        android:layout_height="@dimen/topFragment_center_layout_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10px">
+
+        <RelativeLayout
+            android:id="@+id/network_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/topFragment_gps_iv"
+                android:layout_width="23px"
+                android:layout_height="23px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/ic_gps" />
+
+            <ImageView
+                android:id="@+id/topFragment_network_iv"
+                android:layout_width="23px"
+                android:layout_height="23px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20px"
+                android:layout_toRightOf="@id/topFragment_gps_iv"
+                android:background="@drawable/network_2" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/topFragment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/battery_layout"
+            android:layout_toRightOf="@id/network_layout"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="12:00"
+            android:textColor="@color/top_fragment_text_color"
+            android:textSize="30px" />
+
+        <RelativeLayout
+            android:id="@+id/battery_layout"
+            android:layout_width="85px"
+            android:layout_height="15px"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+
+                android:id="@+id/topFragment_battery_iv"
+                android:layout_width="45px"
+                android:layout_height="15px"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4px"
+                android:layout_toLeftOf="@id/topFragment_battery_tv"
+                android:background="@drawable/ic_battery_100" />
+
+            <TextView
+                android:id="@+id/topFragment_battery_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:includeFontPadding="false"
+                android:text="100%"
+                android:textColor="@color/top_fragment_text_color"
+                android:textSize="15px" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/topFragment_line_iv"
+        android:layout_width="@dimen/activity_main_top_width"
+        android:layout_height="@dimen/topFragment_line_iv_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/top_fragment_line_blue" />
+</RelativeLayout>

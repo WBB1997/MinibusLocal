@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/main_layout_center_width"
+    android:layout_height="@dimen/main_layout_center_height"
+    android:orientation="horizontal"
+    android:background="#fff">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/receLogTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="发送"/>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sendLogTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="接收"
+                android:textColor="#000"/>
+        </HorizontalScrollView>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_login_bg_black">
+    <!--操作界面-->
+    <RelativeLayout
+        android:layout_width="@dimen/login_handle_layout_width"
+        android:layout_height="@dimen/login_handle_layout_height"
+        android:layout_centerInParent="true">
+        <!--输入框界面-->
+        <RelativeLayout
+            android:id="@+id/login_activity_input_layout"
+            android:layout_width="374px"
+            android:layout_height="760px"
+            android:layout_alignParentLeft="true">
+            <!--用户名输入框-->
+            <LinearLayout
+                android:id="@+id/login_activity_input_layout_username"
+                android:layout_width="@dimen/login_layout_input_edittext_width"
+                android:layout_height="@dimen/login_layout_input_edittext_height"
+                android:layout_marginBottom="@dimen/login_layout_margin_top_buttom"
+                android:background="@drawable/circle_border"
+                android:orientation="horizontal">
+                <!--切图-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="31px"
+                        android:layout_height="62px"
+                        android:layout_marginLeft="16px"
+                        android:layout_marginTop="32px"
+                        android:layout_marginRight="16px"
+                        android:layout_marginBottom="32px"
+                        android:background="@drawable/ic_username"
+                        android:gravity="center" />
+                </LinearLayout>
+                <!--输入框-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/username_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/login_activity_et_hint_username"
+                        android:inputType="text"
+                        android:textColor="@color/login_hint_color"
+                        android:textColorHint="@color/login_hint_color"
+                        android:textSize="30px" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--密码输入框-->
+            <LinearLayout
+                android:id="@+id/login_activity_input_layout_password"
+                android:layout_width="@dimen/login_layout_input_edittext_width"
+                android:layout_height="@dimen/login_layout_input_edittext_height"
+                android:layout_below="@id/login_activity_input_layout_username"
+                android:layout_marginBottom="@dimen/login_layout_margin_top_buttom"
+                android:background="@drawable/circle_border"
+                android:orientation="horizontal">
+                <!--切图-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="31px"
+                        android:layout_height="62px"
+                        android:layout_marginLeft="16px"
+                        android:layout_marginTop="32px"
+                        android:layout_marginRight="16px"
+                        android:layout_marginBottom="32px"
+                        android:background="@drawable/ic_password"
+                        android:gravity="center" />
+                </LinearLayout>
+                <!--输入框-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/password_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/login_activity_et_hint_password"
+                        android:inputType="numberPassword"
+                        android:textColor="@color/login_hint_color"
+                        android:textColorHint="@color/login_hint_color"
+                        android:textSize="30px" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--确认-->
+            <LinearLayout
+                android:id="@+id/login_activity_number_row_5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_activity_number_button_height"
+                android:layout_below="@id/login_activity_input_layout_password"
+                android:layout_marginTop="158px"
+                android:orientation="vertical">
+                <!--确认-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_submit" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <!--数字按钮部分-->
+        <RelativeLayout
+            android:id="@+id/login_activity_number_layout"
+            android:layout_width="522px"
+            android:layout_height="760px"
+            android:layout_alignParentRight="true">
+            <!--第一排数字-->
+            <LinearLayout
+                android:id="@+id/login_activity_number_row_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_activity_number_button_height"
+                android:layout_marginBottom="@dimen/login_layout_margin_top_buttom"
+                android:orientation="horizontal">
+                <!--数字1-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_1"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number1" />
+
+                </RelativeLayout>
+                <!--数字2-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_2"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:layout_marginLeft="@dimen/login_layout_margin_left_right"
+                    android:layout_marginRight="@dimen/login_layout_margin_left_right"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number2" />
+
+                </RelativeLayout>
+                <!--数字3-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_3"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number3" />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <!--第二排数字-->
+            <LinearLayout
+                android:id="@+id/login_activity_number_row_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_activity_number_button_height"
+                android:layout_below="@id/login_activity_number_row_1"
+                android:layout_marginBottom="@dimen/login_layout_margin_top_buttom">
+
+                <!--数字4-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_4"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number4" />
+
+                </RelativeLayout>
+                <!--数字5-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_5"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:layout_marginLeft="@dimen/login_layout_margin_left_right"
+                    android:layout_marginRight="@dimen/login_layout_margin_left_right"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number5" />
+
+                </RelativeLayout>
+                <!--数字6-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_6"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number6" />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <!--第三排数字-->
+            <LinearLayout
+                android:id="@+id/login_activity_number_row_3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_activity_number_button_height"
+                android:layout_below="@id/login_activity_number_row_2"
+                android:layout_marginBottom="@dimen/login_layout_margin_top_buttom">
+
+                <!--数字7-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_7"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number7" />
+
+                </RelativeLayout>
+                <!--数字8-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_8"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:layout_marginLeft="@dimen/login_layout_margin_left_right"
+                    android:layout_marginRight="@dimen/login_layout_margin_left_right"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number8" />
+
+                </RelativeLayout>
+                <!--数字9-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_9"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number9" />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <!--第四排数字-->
+            <LinearLayout
+                android:id="@+id/login_activity_number_row_4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_activity_number_button_height"
+                android:layout_below="@id/login_activity_number_row_3">
+                <!--数字0-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_0"
+                    android:layout_width="@dimen/login_activity_number_button_width"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_number0" />
+
+                </RelativeLayout>
+                <!--backSpace-->
+                <RelativeLayout
+                    android:id="@+id/imageButton_backSpace"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_activity_number_button_height"
+                    android:layout_marginLeft="@dimen/login_layout_margin_left_right"
+                    android:background="@drawable/circle_border_pressed"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_delete" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

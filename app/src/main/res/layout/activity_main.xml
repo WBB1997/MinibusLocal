@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/activity_main_width"
+    android:layout_height="@dimen/activity_main_height"
+    android:background="@color/activity_main_bg_color">
+    <!--上部分-->
+    <RelativeLayout
+        android:id="@+id/activity_main_top_layout"
+        android:layout_width="@dimen/activity_main_top_width"
+        android:layout_height="@dimen/activity_main_top_height"
+        android:gravity="center">
+        <fragment
+            android:id="@+id/top_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="com.hasee.minibuslocalhost.fragment.MainTopFragment"
+            tools:layout="@layout/main_top_fragment" />
+        <!--低电量报警部分-->
+        <FrameLayout
+            android:id="@+id/lowBattery_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <!--下部分-->
+    <RelativeLayout
+        android:id="@+id/activity_main_down_layout"
+        android:layout_width="@dimen/activity_main_down_width"
+        android:layout_height="@dimen/activity_main_down_height"
+        android:layout_below="@id/activity_main_top_layout">
+        <!--左边部分-->
+        <RelativeLayout
+            android:id="@+id/down_left_layout"
+            android:layout_width="@dimen/activity_main_left_width"
+            android:layout_height="@dimen/activity_main_left_height"
+            android:layout_toLeftOf="@id/down_center_layout"
+            android:gravity="center">
+            <fragment
+                android:id="@+id/left_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:name="com.hasee.minibuslocalhost.fragment.MainLeftFragment"
+                tools:layout="@layout/main_left_fragment"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+        <!--中间部分-->
+        <RelativeLayout
+            android:id="@+id/down_center_layout"
+            android:layout_width="@dimen/activity_main_center_width"
+            android:layout_height="@dimen/activity_main_center_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_center_bg"
+            android:gravity="center">
+
+            <fragment
+                android:id="@+id/center_fragment"
+                android:name="com.hasee.minibuslocalhost.fragment.MainCenterFragment_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/main_center_fragment" />
+        </RelativeLayout>
+        <!--右边部分-->
+        <RelativeLayout
+            android:id="@+id/down_right_layout"
+            android:layout_width="@dimen/activity_main_right_width"
+            android:layout_height="@dimen/activity_main_right_height"
+            android:layout_toRightOf="@id/down_center_layout">
+
+            <FrameLayout
+                android:id="@+id/right_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+            <!--悬浮按钮-->
+            <FrameLayout
+                android:layout_width="@dimen/main_layout_floatBtn_width"
+                android:layout_height="@dimen/main_layout_floatBtn_height"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true">
+
+                <ImageButton
+                    android:id="@+id/floatBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/floatbtn"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:visibility="invisible" />
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

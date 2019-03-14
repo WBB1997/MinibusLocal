@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MiniBus主控屏(新)</string>
+    <string name="login_activity_et_hint_username">员工编号</string>
+    <string name="login_activity_et_hint_password">登陆密码</string>
+    <string name="right_fragment_tv_zonlic">总里程</string>
+    <string name="right_fragment_tv_renwujd">任务进度</string>
+    <string name="right_fragment_tv_pingjunss">平均时速</string>
+
+    <!--login-->
+    <string name="et_empty">用户名或密码不能为空</string>
+    <string name="login_error">用户名或密码错误</string>
+    <string name="login_success">登陆成功</string>
+    <string name="login_failed">登陆出错</string>z
+
+    <string name="lowSpeed_fragment_text">电池电量低，请及时充电！</string>
+</resources>

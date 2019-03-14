@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/main_right_fragment2_width"
+    android:layout_height="@dimen/main_right_fragment2_height">
+    <!--上部分-->
+    <RelativeLayout
+        android:id="@+id/right_fragment2_top_layout"
+        android:layout_width="@dimen/main_right_fragment2_width"
+        android:layout_height="@dimen/right_fragment2_top_layout_height">
+        <!--时速和电池温度-->
+        <RelativeLayout
+            android:id="@+id/fragment2_top_layout"
+            android:layout_width="@dimen/main_right_fragment2_width"
+            android:layout_height="@dimen/fragment2_top_layout_height">
+            <!--时速-->
+            <RelativeLayout
+                android:id="@+id/speed_layout"
+                android:layout_width="@dimen/speed_layout_width"
+                android:layout_height="@dimen/speed_layout_height">
+                <!--时速-->
+                <ImageView
+                    android:id="@+id/speed_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/ic_right_fragment2_speed" />
+
+                <TextView
+                    android:id="@+id/rightFragment2_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:alpha="0.8"
+                    android:text="0.0"
+                    android:textColor="@color/main_right_fragment2_text_color"
+                    android:textSize="40px"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+            <!--电池温度-->
+            <RelativeLayout
+                android:id="@+id/temperature_layout"
+                android:layout_width="@dimen/speed_layout_width"
+                android:layout_height="@dimen/speed_layout_height"
+                android:layout_marginLeft="15px"
+                android:layout_toRightOf="@id/speed_layout">
+                <!--电池温度-->
+                <ImageView
+                    android:id="@+id/temperature_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_right_fragment2_tem" />
+
+                <TextView
+                    android:id="@+id/rightFragment2_batteryTemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:alpha="0.8"
+                    android:text="20"
+                    android:textColor="@color/main_right_fragment2_text_color"
+                    android:textSize="40px"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <!--总里程、任务进度、平均时速-->
+        <FrameLayout
+            android:layout_width="412px"
+            android:layout_height="71px"
+            android:layout_below="@id/fragment2_top_layout"
+            android:layout_marginTop="40px"
+            android:background="@drawable/ic_right_fragment2_top">
+
+            <RelativeLayout
+                android:layout_width="412px"
+                android:layout_height="71px">
+                <!--总里程-->
+                <TextView
+                    android:id="@+id/rightFragment2_zonlic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginTop="40px"
+                    android:layout_marginRight="80px"
+                    android:alpha="0.8"
+                    android:includeFontPadding="false"
+                    android:scaleX="0.5"
+                    android:text="0.0"
+                    android:textColor="@color/main_right_fragment2_text_color"
+                    android:textSize="30px" />
+                <!--任务进度-->
+                <TextView
+                    android:id="@+id/rightFragment2_renwujd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40px"
+                    android:layout_toRightOf="@id/rightFragment2_zonlic"
+                    android:alpha="0.8"
+                    android:includeFontPadding="false"
+                    android:scaleX="0.5"
+                    android:text="100"
+                    android:textColor="@color/main_right_fragment2_text_color"
+                    android:textSize="30px" />
+                <!--平均时速-->
+                <TextView
+                    android:id="@+id/rightFragment2_pingjunss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40px"
+                    android:layout_marginRight="50px"
+                    android:layout_toRightOf="@id/rightFragment2_renwujd"
+                    android:alpha="0.8"
+                    android:includeFontPadding="false"
+                    android:scaleX="0.5"
+                    android:text="40"
+                    android:textColor="@color/main_right_fragment2_text_color"
+                    android:textSize="30px" />
+            </RelativeLayout>
+        </FrameLayout>
+    </RelativeLayout>
+    <!--下部分-->
+    <RelativeLayout
+        android:id="@+id/right_fragment2_down_layout"
+        android:layout_width="@dimen/right_fragment2_down_layout_width"
+        android:layout_height="@dimen/right_fragment2_down_layout_height"
+        android:layout_below="@id/right_fragment2_top_layout"
+        android:layout_marginTop="30px">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_right_fragment2_line" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/right_fragment2_down_layout_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="14px"
+            android:layout_marginTop="15px">
+
+            <TextView
+                android:id="@+id/driveInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="行驶参数/STATISTICS"
+                android:textColor="@color/main_right_fragment2_text_color"
+                android:textSize="10px" />
+
+            <TextView
+                android:id="@+id/driveInfo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/driveInfo"
+                android:textColor="@color/main_right_fragment2_text_color"
+                android:textSize="10px" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

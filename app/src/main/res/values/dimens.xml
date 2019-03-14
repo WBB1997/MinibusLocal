@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--登陆界面的宽度-->
+    <dimen name="login_activity_layout_width">1920px</dimen>
+    <!--登陆界面的高度-->
+    <dimen name="login_activity_layout_height">540px</dimen>
+    <!--登陆界面操作区域的宽度-->
+    <dimen name="login_handle_layout_width">960px</dimen>
+    <!--登陆界面操作区域的高度-->
+    <dimen name="login_handle_layout_height">608px</dimen>
+    <!--登陆界面数字按钮的宽度-->
+    <dimen name="login_activity_number_button_width">164px</dimen>
+    <!--登陆界面数字按钮的高度-->
+    <dimen name="login_activity_number_button_height">128px</dimen>
+    <!--登陆界面数字按钮的左边字体大小-->
+    <dimen name="login_activity_number_button_textSize_left">80px</dimen>
+    <!--登陆界面数字按钮的右边字体大小-->
+    <dimen name="login_activity_number_button_textSize_right">20px</dimen>
+    <!--登陆界面数字按钮的左边右边字体间距-->
+    <dimen name="login_activity_number_button_left_right_margin">64px</dimen>
+    <!--登陆界面输入框的宽度-->
+    <dimen name="login_layout_input_edittext_width">374px</dimen>
+    <!--登陆界面输入框的高度-->
+    <dimen name="login_layout_input_edittext_height">128px</dimen>
+    <!--登陆界面输入框字体的大小-->
+    <dimen name="login_layout_input_edittext_textSize"></dimen>
+    <!--登陆界面的左右边距-->
+    <dimen name="login_layout_margin_left_right">15px</dimen>
+    <!--登陆界面的上下边距-->
+    <dimen name="login_layout_margin_top_buttom">30px</dimen>
+    <!--登陆界面错误框宽度-->
+    <dimen name="login_error_dialog_width">518px</dimen>
+    <!--登陆界面错误框高度-->
+    <dimen name="login_error_dialog_height">262px</dimen>
+    <!--显示主界面-->
+    <!--主界面上部宽度-->
+    <dimen name="main_layout_top_width">708px</dimen>
+    <!--主界面上部高度-->
+    <dimen name="main_layout_top_height">112px</dimen>
+    <!--主界面左边宽度-->
+    <dimen name="main_layout_left_width">376px</dimen>
+    <!--主界面左边高度-->
+    <dimen name="main_layout_left_height">892px</dimen>
+    <!--主界面中间宽度-->
+    <dimen name="main_layout_center_width">880px</dimen>
+    <!--主界面中间高度-->
+    <dimen name="main_layout_center_height">744px</dimen>
+    <!--主界面右边宽度-->
+    <dimen name="main_layout_right1_width">360px</dimen>
+    <!--主界面右边高度-->
+    <dimen name="main_layout_right1_height">608px</dimen>
+    <!--主界面右边宽度-->
+    <dimen name="main_layout_right2_width">380px</dimen>
+    <!--主界面右边高度-->
+    <dimen name="main_layout_right2_height">896px</dimen>
+    <!--悬浮按钮布局宽度-->
+    <dimen name="main_layout_floatBtn_width">100px</dimen>
+    <!--悬浮按钮布局高度-->
+    <dimen name="main_layout_floatBtn_height">120px</dimen>
+    <!--主界面低速报警宽度-->
+    <dimen name="main_layout_lowSpeed_width">300px</dimen>
+    <!--主界面低速报警高度-->
+    <dimen name="main_layout_lowSpeed_height">108px</dimen>
+    <!--主界面时间字体大小-->
+    <dimen name="main_layout_time_textSize">80px</dimen>
+    <!--左边Fragment字体大小-->
+    <dimen name="main_left_fragment_textSize">36px</dimen>
+    <dimen name="main_left_fragment_light_margin">10px</dimen>
+    <!--字体大小-->
+    <dimen name="textSize_50px">50px</dimen>
+    <dimen name="textSize_40px">40px</dimen>
+    <dimen name="textSize_20px">20px</dimen>
+    <dimen name="textSize_16px">16px</dimen>
+    <dimen name="textSize_10px">10px</dimen>
+    <!--Margin-->
+    <dimen name="margin_5px">5px</dimen>
+    <dimen name="margin_10px">10px</dimen>
+    <dimen name="margin_20px">20px</dimen>
+    <dimen name="margin_24px">24px</dimen>
+    <dimen name="margin_30px">30px</dimen>
+    <dimen name="margin_40px">40px</dimen>
+    <dimen name="margin_50px">50px</dimen>
+    <dimen name="margin_60px">60px</dimen>
+    <dimen name="margin_80px">80px</dimen>
+    <dimen name="margin_100px">100px</dimen>
+    <!--左边Fragment空调按钮大小-->
+    <dimen name="button_width">90px</dimen>
+    <dimen name="button_height">72px</dimen>
+    <!--新UI版本-->
+    <dimen name="activity_main_width">1920px</dimen>
+    <dimen name="activity_main_height">540px</dimen>
+    <dimen name="activity_main_top_width">1920px</dimen>
+    <dimen name="activity_main_top_height">100px</dimen>
+    <dimen name="activity_main_down_width">1920px</dimen>
+    <dimen name="activity_main_down_height">415px</dimen>
+    <dimen name="activity_main_center_width">906px</dimen>
+    <dimen name="activity_main_center_height">411px</dimen>
+    <dimen name="activity_main_left_width">508px</dimen>
+    <dimen name="activity_main_left_height">411px</dimen>
+    <dimen name="activity_main_right_width">508px</dimen>
+    <dimen name="activity_main_right_height">411px</dimen>
+    <!---->
+    <dimen name="main_center_fragment_width">864px</dimen>
+    <dimen name="main_center_fragment_height">372px</dimen>
+    <dimen name="main_right_fragment1_width">220px</dimen>
+    <dimen name="main_right_fragment1_height">328px</dimen>
+    <dimen name="main_right_fragment1_button_width">220px</dimen>
+    <dimen name="main_right_fragment1_button_height">84px</dimen>
+    <dimen name="main_left_fragment_width">411px</dimen>
+    <dimen name="main_left_fragment_height">400px</dimen>
+    <dimen name="main_right_fragment2_width">412px</dimen>
+    <dimen name="main_right_fragment2_height">352px</dimen>
+    <dimen name="right_fragment2_top_layout_height">230px</dimen>
+    <dimen name="fragment2_top_layout_height">117px</dimen>
+    <dimen name="speed_layout_width">194px</dimen>
+    <dimen name="speed_layout_height">115px</dimen>
+    <dimen name="right_fragment2_down_layout_width">408px</dimen>
+    <dimen name="right_fragment2_down_layout_height">90px</dimen>
+    <dimen name="leftFragment_light_layout_line_height">35px</dimen>
+    <dimen name="leftFragment_light_layout_height">57px</dimen>
+    <dimen name="leftFragment_light_iv_width">54px</dimen>
+    <dimen name="leftFragment_light_iv_height">57px</dimen>
+    <dimen name="leftFragment_control_light_layout_height">130px</dimen>
+    <dimen name="leftFragment_air_btn_width">38px</dimen>
+    <dimen name="leftFragment_air_btn_height">38px</dimen>
+    <dimen name="topFragment_line_iv_height">41px</dimen>
+    <dimen name="topFragment_center_layout_width">332px</dimen>
+    <dimen name="topFragment_center_layout_height">40px</dimen>
+
+    <!--margin-->
+    <dimen name="margin_38">38px</dimen>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/login_error_dialog_width"
+    android:layout_height="@dimen/login_error_dialog_height"
+    android:background="@drawable/login_error_dialog">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="50px"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/login_error_dialog_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:textColor="@color/login_error_dialog_tv"
+            android:textSize="40px"
+            android:scaleX="0.5"/>
+
+        <TextView
+            android:id="@+id/login_error_dialog_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_error_dialog_tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20px"
+            android:text=""
+            android:textColor="@color/login_error_dialog_tv"
+            android:textSize="40px"
+            android:scaleX="0.5"/>
+
+        <TextView
+            android:id="@+id/login_error_dialog_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_error_dialog_tv2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30px"
+            android:text="紧急联系电话：0719-4564566"
+            android:textColor="@color/login_error_dialog_tv"
+            android:textSize="20px"
+            android:scaleX="0.5"/>
+    </RelativeLayout>
+</RelativeLayout>
