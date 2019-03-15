@@ -33,8 +33,9 @@
                     android:layout_marginTop="@dimen/margin_top_10px"
                     android:alpha="0.8"
                     android:text="0.0"
+                    android:textScaleX="0.5"
                     android:textColor="@color/main_right_fragment2_text_color"
-                    android:textSize="40px"
+                    android:textSize="80px"
                     android:textStyle="italic" />
             </RelativeLayout>
             <!--电池温度-->
@@ -59,8 +60,9 @@
                     android:layout_marginTop="@dimen/margin_top_10px"
                     android:alpha="0.8"
                     android:text="20"
+                    android:textScaleX="0.5"
                     android:textColor="@color/main_right_fragment2_text_color"
-                    android:textSize="40px"
+                    android:textSize="80px"
                     android:textStyle="italic" />
             </RelativeLayout>
         </RelativeLayout>
@@ -88,8 +90,9 @@
                     android:alpha="0.8"
                     android:includeFontPadding="false"
                     android:text="0.0 km"
+                    android:textScaleX="0.5"
                     android:textColor="@color/main_right_fragment2_text_color"
-                    android:textSize="25px" />
+                    android:textSize="50px" />
                 <!--任务进度-->
                 <TextView
                     android:id="@+id/rightFragment2_renwujd"
@@ -99,8 +102,9 @@
                     android:alpha="0.8"
                     android:includeFontPadding="false"
                     android:text="0 %"
+                    android:textScaleX="0.5"
                     android:textColor="@color/main_right_fragment2_text_color"
-                    android:textSize="25px" />
+                    android:textSize="50px" />
                 <!--平均时速-->
                 <TextView
                     android:id="@+id/rightFragment2_pingjunss"
@@ -110,8 +114,9 @@
                     android:alpha="0.8"
                     android:includeFontPadding="false"
                     android:text="0 km/h"
+                    android:textScaleX="0.5"
                     android:textColor="@color/main_right_fragment2_text_color"
-                    android:textSize="25px" />
+                    android:textSize="50px" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -140,8 +145,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="行驶参数/STATISTICS"
+                android:textScaleX="0.5"
                 android:textColor="@color/main_right_fragment2_text_color"
-                android:textSize="10px" />
+                android:textSize="20px" />
 
             <ScrollView
                 android:layout_width="wrap_content"
@@ -152,8 +158,9 @@
                     android:id="@+id/driveInfo_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textScaleX="0.5"
                     android:textColor="@color/main_right_fragment2_text_color"
-                    android:textSize="10px" />
+                    android:textSize="20px" />
             </ScrollView>
         </RelativeLayout>
     </RelativeLayout>

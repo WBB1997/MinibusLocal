@@ -10,6 +10,8 @@
         android:layout_width="@dimen/main_right_fragment1_button_width"
         android:layout_height="@dimen/main_right_fragment1_button_height"
         android:text="自动驾驶"
+        android:textScaleX="0.5"
+        android:textSize="50px"
         android:background="@drawable/right_fragment1_btn"
         android:textColor="@color/main_right_fragment1_btnText_color" />
     <!--远程驾驶-->
@@ -22,6 +24,8 @@
         android:layout_marginTop="@dimen/margin_top_38px"
         android:layout_marginBottom="@dimen/margin_bottom_38px"
         android:text="远程驾驶"
+        android:textScaleX="0.5"
+        android:textSize="50px"
         android:background="@drawable/right_fragment1_btn"
         android:textColor="@color/main_right_fragment1_btnText_color" />
     <!--待机-->
@@ -31,6 +35,8 @@
         android:layout_height="@dimen/main_right_fragment1_button_height"
         android:layout_below="@id/rightFragment1_longDrive"
         android:text="待机"
+        android:textScaleX="0.5"
+        android:textSize="50px"
         android:background="@drawable/right_fragment1_btn"
         android:textColor="@color/main_right_fragment1_btnText_color" />
 </RelativeLayout>

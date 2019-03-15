@@ -50,9 +50,10 @@
                         android:background="@null"
                         android:hint="@string/login_activity_et_hint_username"
                         android:inputType="text"
+                        android:textScaleX="0.5"
                         android:textColor="@color/login_hint_color"
                         android:textColorHint="@color/login_hint_color"
-                        android:textSize="30px" />
+                        android:textSize="60px" />
                 </LinearLayout>
             </LinearLayout>
             <!--密码输入框-->
@@ -91,10 +92,11 @@
                         android:layout_height="match_parent"
                         android:background="@null"
                         android:hint="@string/login_activity_et_hint_password"
+                        android:textScaleX="0.5"
                         android:inputType="numberPassword"
                         android:textColor="@color/login_hint_color"
                         android:textColorHint="@color/login_hint_color"
-                        android:textSize="30px" />
+                        android:textSize="60px" />
                 </LinearLayout>
             </LinearLayout>
             <!--确认-->

@@ -8,7 +8,7 @@
         android:layout_width="@dimen/topFragment_center_layout_width"
         android:layout_height="@dimen/topFragment_center_layout_height"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10px">
+        android:layout_marginTop="@dimen/margin_top_10px">
 
         <RelativeLayout
             android:id="@+id/network_layout"
@@ -44,8 +44,9 @@
             android:gravity="center"
             android:includeFontPadding="true"
             android:text="12:00"
+            android:textScaleX="0.5"
             android:textColor="@color/top_fragment_text_color"
-            android:textSize="30px" />
+            android:textSize="60px" />
 
         <RelativeLayout
             android:id="@+id/battery_layout"
@@ -73,9 +74,10 @@
                 android:layout_centerVertical="true"
                 android:includeFontPadding="false"
                 android:text="22%"
+                android:textScaleX="0.5"
                 android:gravity="center"
                 android:textColor="@color/top_fragment_text_color"
-                android:textSize="13px" />
+                android:textSize="20px" />
         </RelativeLayout>
     </RelativeLayout>
 

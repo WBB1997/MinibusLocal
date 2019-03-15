@@ -13,8 +13,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="车辆灯光/Exterior Light"
+            android:textScaleX="0.5"
             android:textColor="@color/main_left_fragment_text_color"
-            android:textSize="20px" />
+            android:textSize="40px" />
 
         <ImageView
             android:layout_width="@dimen/main_left_fragment_width"
@@ -97,8 +98,9 @@
                 android:background="@drawable/left_fragment_btn"
                 android:gravity="center"
                 android:text="AUTO"
+                android:textScaleX="0.5"
                 android:textColor="@color/main_left_fragment_text_color"
-                android:textSize="15px" />
+                android:textSize="30px" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -195,8 +197,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="空调/AC"
+            android:textScaleX="0.5"
             android:textColor="@color/main_left_fragment_text_color"
-            android:textSize="20px" />
+            android:textSize="40px" />
 
         <ImageView
             android:id="@+id/left_fragment_line_v"
@@ -259,8 +262,9 @@
                 android:background="@drawable/left_fragment_tv"
                 android:gravity="center"
                 android:text="20℃"
+                android:textScaleX="0.5"
                 android:textColor="@color/main_left_fragment_text_color"
-                android:textSize="15px" />
+                android:textSize="30px" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -289,8 +293,9 @@
             android:layout_toRightOf="@id/left_fragment_condition_img"
             android:includeFontPadding="false"
             android:text="0"
+            android:textScaleX="0.5"
             android:textColor="@color/left_fragment_text_color"
-            android:textSize="20px" />
+            android:textSize="40px" />
 
         <SeekBar
             android:id="@+id/leftFragment_seekBar"
@@ -299,9 +304,9 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/leftFragment_condition_size"
             android:max="100"
-            android:maxHeight="4dp"
+            android:maxHeight="8dp"
             android:min="0"
-            android:minHeight="4dp"
+            android:minHeight="8dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:progressDrawable="@drawable/ic_seekbar"
