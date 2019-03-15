@@ -21,17 +21,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.minibuslocal.bean.IntegerCommand.HAD_ArrivingSiteRemind;
+import static com.example.minibuslocal.bean.IntegerCommand.HAD_CurrentDrivingRoadIDNum;
+import static com.example.minibuslocal.bean.IntegerCommand.HAD_NextStationIDNumb;
 
 public class MainCenterFragment extends Fragment {
     private static final String TAG = "MainCenterFragment";
     private ImageView centerFragmentMap;
     private VideoView centerFragmentVideoView;
     private static List<File> files  = new ArrayList<>();
-    private int lastProgress = -1;
+    private int lastProgress = -1;//上一次播放进度
+    private int lastStationId = -1;//下一个站点
+    private int index = 0;
     static {
-        files.add(new File(Environment.getExternalStorageDirectory()+"/Movies/","movie1.avi"));
-        files.add(new File(Environment.getExternalStorageDirectory()+"/Movies/","movie2.avi"));
-        files.add(new File(Environment.getExternalStorageDirectory()+"/Movies/","movie3.mp4"));
+        files.add(new File(Environment.getExternalStorageDirectory()+"/minibus/video/","movie1.mp4"));
+        files.add(new File(Environment.getExternalStorageDirectory()+"/minibus/video/","movie2.mp4"));
     }
     @Nullable
     @Override
@@ -41,7 +44,7 @@ public class MainCenterFragment extends Fragment {
         centerFragmentVideoView = (VideoView)view.findViewById(R.id.center_fragment_videoView);
         centerFragmentVideoView.setOnCompletionListener(onCompletionListener);
         centerFragmentVideoView.setOnErrorListener(onErrorListener);
-        centerFragmentVideoView.setOnPreparedListener(onPreparedListener);
+//        centerFragmentVideoView.setOnPreparedListener(onPreparedListener);
         return view;
     }
 
@@ -69,6 +72,7 @@ public class MainCenterFragment extends Fragment {
     private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
+            lastProgress = -1;
             centerFragmentVideoView.suspend();
             setVisibility(View.VISIBLE,View.INVISIBLE);
             Log.d(TAG, "onCompletion: ");
@@ -119,8 +123,23 @@ public class MainCenterFragment extends Fragment {
     public void refresh(JSONObject object) {
         int id = object.getIntValue("id");
         int data = object.getIntValue("data");
-        if(id == HAD_ArrivingSiteRemind){//到站提醒
-            initVideoPath(2);
+        Log.d(TAG, "refresh: "+id+":"+data);
+        if (id == HAD_NextStationIDNumb) {//下一个站点ID
+            lastStationId = data;
+        } else if (id == HAD_ArrivingSiteRemind) {//到站提醒
+            if(index == 0){
+                index = 1;
+            }else if(index == 1){
+                index = 0;
+            }
+            if(centerFragmentVideoView.isPlaying()){
+                centerFragmentVideoView.suspend();
+            }
+            initVideoPath(index);
+            if(!centerFragmentVideoView.isPlaying()){
+                setVisibility(View.INVISIBLE,View.VISIBLE);
+                centerFragmentVideoView.start();
+            }
         }
     }
 }

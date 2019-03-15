@@ -29,7 +29,7 @@ public class MusicService extends Service {
     private final int ARRIVING = 1;//即将到站 0x1
     private final int ARRIVING_TERMINAL_STATION = 5;//即将到达终点站
     private final int ARRIVED_TERMINAL_STATION = 6;//到达终点站
-    private String basePath = Environment.getExternalStorageDirectory() + "/sound/";//默认路径
+    private String basePath = Environment.getExternalStorageDirectory() + "/minibus/sound/";//默认路径
     private MusicBinder mBinder;
     private MediaPlayer mediaPlayer;
     private List<File> musicList = null;//存放音乐的List
@@ -79,6 +79,7 @@ public class MusicService extends Service {
         musicList = new ArrayList<>();
         if (isFirst) {
             musicList.add(new File(basePath, "欢迎乘坐.wav"));
+            musicList.add(new File(basePath+"mute.mp3"));
             isFirst = false;
         }
         musicList.add(new File(basePath, "1.mp3"));
@@ -102,18 +103,22 @@ public class MusicService extends Service {
                 musicList.add(new File(basePath + path));
                 musicList.add(new File(basePath + "到了.wav"));
                 musicList.add(new File(basePath + "下车请注意.wav"));
+                musicList.add(new File(basePath+"mute.mp3"));
             } else if (playType == ARRIVING) {//即将到站{前方即将到站 XXX，请做好下车准备}
                 musicList.add(new File(basePath + "前方即将到站.wav"));
                 musicList.add(new File(basePath + path));
                 musicList.add(new File(basePath + "请做好下车准备.wav"));
+                musicList.add(new File(basePath+"mute.mp3"));
             } else if (playType == ARRIVED_TERMINAL_STATION) {//到达终点站{终点站 XXX 到了，开门请当心，下车请注意}
                 musicList.add(new File(basePath + "终点站.wav"));
                 musicList.add(new File(basePath + path));
                 musicList.add(new File(basePath + "开门请当心下车请注意.wav"));
+                musicList.add(new File(basePath+"mute.mp3"));
             } else if (playType == ARRIVING_TERMINAL_STATION) {//即将到达终点站{前方即将到达终点站 XXX， 请做好下车准备}
                 musicList.add(new File(basePath + "前方即将到达终点站.wav"));
                 musicList.add(new File(basePath + path));
                 musicList.add(new File(basePath + "请做好下车准备.wav"));
+                musicList.add(new File(basePath+"mute.mp3"));
             } else if (playType == CAR_START) {//车辆出发{欢迎乘坐东风Sharing Van无人驾驶车,本车开往XXX方向,下一站XXX}
                 musicList.add(new File(basePath + "欢迎乘坐.wav"));
                 musicList.add(new File(basePath + "本车开往.wav"));
@@ -121,6 +126,7 @@ public class MusicService extends Service {
                 musicList.add(new File(basePath + "方向.wav"));
                 musicList.add(new File(basePath + "下一站.wav"));
                 musicList.add(new File(basePath + path));
+                musicList.add(new File(basePath+"mute.mp3"));
             }
             return true;
         }

@@ -208,7 +208,7 @@ public class MainActivity extends BaseActivity {
                 sreialComm.receive();
             }
         });
-//        sreialThread.start();
+        sreialThread.start();
     }
 
     /**
@@ -340,7 +340,6 @@ public class MainActivity extends BaseActivity {
                 case SEND_TO_LEFTSCREEN: {//左车门
                     new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
                     playStationMusic(object);
-//                    centerFragment.refresh(object);
 //                    LogUtil.d(TAG, "发送信息给左车门");
                     break;
                 }
@@ -386,6 +385,7 @@ public class MainActivity extends BaseActivity {
                     new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
                     new SendToScreenThread(mContext, object, SEND_TO_RIGHTSCREEN).start();
                     playStationMusic(object);
+                    centerFragment.refresh(object);
 //                    LogUtil.d(TAG, "都发");
                     break;
                 }
