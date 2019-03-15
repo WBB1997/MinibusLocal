@@ -28,7 +28,7 @@
         android:layout_width="@dimen/main_left_fragment_width"
         android:layout_height="@dimen/leftFragment_light_layout_height"
         android:layout_below="@id/leftFragment_light_layout_line"
-        android:layout_marginTop="20px">
+        android:layout_marginTop="@dimen/margin_top_20px">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:id="@+id/leftFragment_lowBeam"
                 android:layout_width="@dimen/leftFragment_light_iv_width"
                 android:layout_height="@dimen/leftFragment_light_iv_height"
-                android:layout_marginRight="20px"
+                android:layout_marginRight="@dimen/margin_20px"
                 android:layout_weight="1"
                 android:background="@drawable/lowbeam_change" />
             <!--远光灯-->
@@ -46,7 +46,7 @@
                 android:id="@+id/leftFragment_highBeam"
                 android:layout_width="@dimen/leftFragment_light_iv_width"
                 android:layout_height="@dimen/leftFragment_light_iv_height"
-                android:layout_marginRight="20px"
+                android:layout_marginRight="@dimen/margin_20px"
                 android:layout_weight="1"
                 android:background="@drawable/highbeam_change" />
             <!--后雾灯-->
@@ -54,7 +54,7 @@
                 android:id="@+id/leftFragment_back_fogLight"
                 android:layout_width="@dimen/leftFragment_light_iv_width"
                 android:layout_height="@dimen/leftFragment_light_iv_height"
-                android:layout_marginRight="20px"
+                android:layout_marginRight="@dimen/margin_20px"
                 android:layout_weight="1"
                 android:background="@drawable/back_foglight_change" />
             <!--前雾灯-->
@@ -62,7 +62,7 @@
                 android:id="@+id/leftFragment_front_fogLight"
                 android:layout_width="@dimen/leftFragment_light_iv_width"
                 android:layout_height="@dimen/leftFragment_light_iv_height"
-                android:layout_marginRight="20px"
+                android:layout_marginRight="@dimen/margin_20px"
                 android:layout_weight="1"
                 android:background="@drawable/front_foglight_change" />
             <!--双闪-->
@@ -70,7 +70,7 @@
                 android:id="@+id/leftFragment_errorLight"
                 android:layout_width="@dimen/leftFragment_light_iv_width"
                 android:layout_height="@dimen/leftFragment_light_iv_height"
-                android:layout_marginRight="20px"
+                android:layout_marginRight="@dimen/margin_20px"
                 android:layout_weight="1"
                 android:background="@drawable/error_light_change" />
         </LinearLayout>
@@ -81,18 +81,19 @@
         android:layout_width="@dimen/main_left_fragment_width"
         android:layout_height="@dimen/leftFragment_control_light_layout_height"
         android:layout_below="@+id/leftFragment_light_layout"
-        android:layout_marginTop="20px">
+        android:layout_marginTop="@dimen/margin_top_20px">
         <!--自动灯,近光、远光-->
         <RelativeLayout
-            android:layout_width="114px"
-            android:layout_height="67px"
+            android:id="@+id/control_light_layout"
+            android:layout_width="@dimen/control_light_layout_width"
+            android:layout_height="@dimen/control_light_layout_height"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true">
-
+            <!--自动灯-->
             <Button
                 android:id="@+id/leftFragment_auto"
                 android:layout_width="match_parent"
-                android:layout_height="25px"
+                android:layout_height="@dimen/leftFragment_auto_height"
                 android:background="@drawable/left_fragment_btn"
                 android:gravity="center"
                 android:text="AUTO"
@@ -103,19 +104,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/leftFragment_auto"
-                android:layout_marginTop="20px">
+                android:layout_marginTop="@dimen/margin_top_20px">
                 <!--左转向灯-->
                 <ImageButton
                     android:id="@+id/leftFragment_leftLight"
-                    android:layout_width="40px"
-                    android:layout_height="22px"
+                    android:layout_width="@dimen/leftFragment_leftLight_width"
+                    android:layout_height="@dimen/leftFragment_leftLight_height"
                     android:layout_alignParentLeft="true"
                     android:background="@drawable/left_light_change" />
                 <!--右转向灯-->
                 <ImageButton
                     android:id="@+id/leftFragment_rightLight"
-                    android:layout_width="40px"
-                    android:layout_height="22px"
+                    android:layout_width="@dimen/leftFragment_leftLight_width"
+                    android:layout_height="@dimen/leftFragment_leftLight_height"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/right_light_change" />
             </RelativeLayout>
@@ -163,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@drawable/ic_car_lowbeam_true"
-                android:visibility="visible" />
+                android:visibility="invisible" />
             <!--远光灯-->
             <ImageView
                 android:id="@+id/leftFragment_car_highbeam_open"
@@ -175,10 +176,11 @@
         </FrameLayout>
 
         <View
+            android:id="@+id/left_fragment_line2_v"
             android:layout_width="@dimen/main_left_fragment_width"
-            android:layout_height="33px"
+            android:layout_height="@dimen/left_fragment_line2_v_height"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/right_fragment_line2" />
+            android:background="@drawable/left_fragment_line2" />
     </RelativeLayout>
     <!--空调-->
     <RelativeLayout
@@ -186,7 +188,7 @@
         android:layout_width="@dimen/main_left_fragment_width"
         android:layout_height="@dimen/leftFragment_light_layout_line_height"
         android:layout_below="@+id/leftFragment_control_light_layout"
-        android:layout_marginTop="14px">
+        android:layout_marginTop="@dimen/margin_top_14px">
 
         <TextView
             android:layout_width="wrap_content"
@@ -197,8 +199,9 @@
             android:textSize="20px" />
 
         <ImageView
+            android:id="@+id/left_fragment_line_v"
             android:layout_width="@dimen/main_left_fragment_width"
-            android:layout_height="14px"
+            android:layout_height="@dimen/left_fragment_line_v_height"
             android:layout_alignParentBottom="true"
             android:background="@drawable/ic_left_fragment_line" />
     </RelativeLayout>
@@ -208,7 +211,7 @@
         android:layout_width="@dimen/main_left_fragment_width"
         android:layout_height="@dimen/leftFragment_air_btn_height"
         android:layout_below="@+id/leftFragment_air_layout_line"
-        android:layout_marginTop="12px">
+        android:layout_marginTop="@dimen/margin_top_12px">
 
         <LinearLayout
             android:layout_width="@dimen/main_left_fragment_width"
@@ -220,7 +223,7 @@
                 android:id="@+id/leftFragment_coolAir_img"
                 android:layout_width="@dimen/leftFragment_air_btn_width"
                 android:layout_height="@dimen/leftFragment_air_btn_height"
-                android:layout_marginRight="40px"
+                android:layout_marginRight="@dimen/margin_40px"
                 android:layout_weight="1"
                 android:background="@drawable/cool_air_change" />
             <!--暖气-->
@@ -228,7 +231,7 @@
                 android:id="@+id/leftFragment_hotAir_img"
                 android:layout_width="@dimen/leftFragment_air_btn_width"
                 android:layout_height="@dimen/leftFragment_air_btn_height"
-                android:layout_marginRight="40px"
+                android:layout_marginRight="@dimen/margin_40px"
                 android:layout_weight="1"
                 android:background="@drawable/hot_air_change" />
             <!--OFF-->
@@ -236,7 +239,7 @@
                 android:id="@+id/leftFragment_off_img"
                 android:layout_width="@dimen/leftFragment_air_btn_width"
                 android:layout_height="@dimen/leftFragment_air_btn_height"
-                android:layout_marginRight="40px"
+                android:layout_marginRight="@dimen/margin_40px"
                 android:layout_weight="1"
                 android:background="@drawable/off_air_change" />
             <!--除雾-->
@@ -244,14 +247,14 @@
                 android:id="@+id/leftFragment_deFog_img"
                 android:layout_width="@dimen/leftFragment_air_btn_width"
                 android:layout_height="@dimen/leftFragment_air_btn_height"
-                android:layout_marginRight="40px"
+                android:layout_marginRight="@dimen/margin_40px"
                 android:layout_weight="1"
                 android:background="@drawable/defog_change" />
 
             <TextView
                 android:id="@+id/leftFragment_temperature_tv"
-                android:layout_width="103px"
-                android:layout_height="30px"
+                android:layout_width="@dimen/leftFragment_temperature_tv_width"
+                android:layout_height="@dimen/leftFragment_temperature_tv_height"
                 android:layout_gravity="center|right"
                 android:background="@drawable/left_fragment_tv"
                 android:gravity="center"
@@ -262,15 +265,16 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/leftFragment_seekBar_layout"
         android:layout_width="@dimen/main_left_fragment_width"
-        android:layout_height="45px"
+        android:layout_height="@dimen/leftFragment_seekBar_layout_height"
         android:layout_below="@+id/leftFragment_control_air_layout"
-        android:layout_marginTop="14px">
+        android:layout_marginTop="@dimen/margin_top_14px">
 
         <ImageView
             android:id="@+id/left_fragment_condition_img"
-            android:layout_width="33px"
-            android:layout_height="33px"
+            android:layout_width="@dimen/left_fragment_condition_img_width"
+            android:layout_height="@dimen/left_fragment_condition_img_height"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15px"
@@ -283,8 +287,10 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20px"
             android:layout_toRightOf="@id/left_fragment_condition_img"
+            android:includeFontPadding="false"
             android:text="0"
-            android:textColor="@color/left_fragment_text_color" />
+            android:textColor="@color/left_fragment_text_color"
+            android:textSize="20px" />
 
         <SeekBar
             android:id="@+id/leftFragment_seekBar"

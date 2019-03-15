@@ -14,4 +14,11 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void test(){
+        double dd = 113.324334324324324;
+        Object o = dd;
+        System.out.println(""+(int)((double)o));
+    }
 }

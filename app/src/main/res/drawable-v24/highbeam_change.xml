@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--远光灯切换-->
-    <!--未点击-->
-    <item android:state_activated="true" android:drawable="@drawable/highbeam_true"/>
-    <!--点击了-->
-    <item android:state_activated="false" android:drawable="@drawable/highbeam_false"/>
-</selector>

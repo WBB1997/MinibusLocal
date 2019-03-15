@@ -32,46 +32,14 @@
     <dimen name="login_error_dialog_width">518px</dimen>
     <!--登陆界面错误框高度-->
     <dimen name="login_error_dialog_height">262px</dimen>
-    <!--显示主界面-->
-    <!--主界面上部宽度-->
-    <dimen name="main_layout_top_width">708px</dimen>
-    <!--主界面上部高度-->
-    <dimen name="main_layout_top_height">112px</dimen>
-    <!--主界面左边宽度-->
-    <dimen name="main_layout_left_width">376px</dimen>
-    <!--主界面左边高度-->
-    <dimen name="main_layout_left_height">892px</dimen>
-    <!--主界面中间宽度-->
-    <dimen name="main_layout_center_width">880px</dimen>
-    <!--主界面中间高度-->
-    <dimen name="main_layout_center_height">744px</dimen>
-    <!--主界面右边宽度-->
-    <dimen name="main_layout_right1_width">360px</dimen>
-    <!--主界面右边高度-->
-    <dimen name="main_layout_right1_height">608px</dimen>
-    <!--主界面右边宽度-->
-    <dimen name="main_layout_right2_width">380px</dimen>
-    <!--主界面右边高度-->
-    <dimen name="main_layout_right2_height">896px</dimen>
     <!--悬浮按钮布局宽度-->
-    <dimen name="main_layout_floatBtn_width">100px</dimen>
+    <dimen name="main_layout_floatBtn_width">60px</dimen>
     <!--悬浮按钮布局高度-->
-    <dimen name="main_layout_floatBtn_height">120px</dimen>
+    <dimen name="main_layout_floatBtn_height">65px</dimen>
     <!--主界面低速报警宽度-->
     <dimen name="main_layout_lowSpeed_width">300px</dimen>
     <!--主界面低速报警高度-->
     <dimen name="main_layout_lowSpeed_height">108px</dimen>
-    <!--主界面时间字体大小-->
-    <dimen name="main_layout_time_textSize">80px</dimen>
-    <!--左边Fragment字体大小-->
-    <dimen name="main_left_fragment_textSize">36px</dimen>
-    <dimen name="main_left_fragment_light_margin">10px</dimen>
-    <!--字体大小-->
-    <dimen name="textSize_50px">50px</dimen>
-    <dimen name="textSize_40px">40px</dimen>
-    <dimen name="textSize_20px">20px</dimen>
-    <dimen name="textSize_16px">16px</dimen>
-    <dimen name="textSize_10px">10px</dimen>
     <!--Margin-->
     <dimen name="margin_5px">5px</dimen>
     <dimen name="margin_10px">10px</dimen>
@@ -83,9 +51,6 @@
     <dimen name="margin_60px">60px</dimen>
     <dimen name="margin_80px">80px</dimen>
     <dimen name="margin_100px">100px</dimen>
-    <!--左边Fragment空调按钮大小-->
-    <dimen name="button_width">90px</dimen>
-    <dimen name="button_height">72px</dimen>
     <!--新UI版本-->
     <dimen name="activity_main_width">1920px</dimen>
     <dimen name="activity_main_height">540px</dimen>
@@ -107,10 +72,10 @@
     <dimen name="main_right_fragment1_button_width">220px</dimen>
     <dimen name="main_right_fragment1_button_height">84px</dimen>
     <dimen name="main_left_fragment_width">411px</dimen>
-    <dimen name="main_left_fragment_height">400px</dimen>
+    <dimen name="main_left_fragment_height">411px</dimen>
     <dimen name="main_right_fragment2_width">412px</dimen>
     <dimen name="main_right_fragment2_height">352px</dimen>
-    <dimen name="right_fragment2_top_layout_height">230px</dimen>
+    <dimen name="right_fragment2_top_layout_height">250px</dimen>
     <dimen name="fragment2_top_layout_height">117px</dimen>
     <dimen name="speed_layout_width">194px</dimen>
     <dimen name="speed_layout_height">115px</dimen>
@@ -126,7 +91,30 @@
     <dimen name="topFragment_line_iv_height">41px</dimen>
     <dimen name="topFragment_center_layout_width">332px</dimen>
     <dimen name="topFragment_center_layout_height">40px</dimen>
-
+    <dimen name="control_light_layout_width">114px</dimen>
+    <dimen name="control_light_layout_height">67px</dimen>
+    <dimen name="leftFragment_auto_height">25px</dimen>
+    <dimen name="leftFragment_leftLight_width">40px</dimen>
+    <dimen name="leftFragment_leftLight_height">22px</dimen>
+    <dimen name="left_fragment_line2_v_height">33px</dimen>
+    <dimen name="left_fragment_line_v_height">14px</dimen>
+    <dimen name="leftFragment_temperature_tv_width">103px</dimen>
+    <dimen name="leftFragment_temperature_tv_height">30px</dimen>
+    <dimen name="leftFragment_seekBar_layout_height">45px</dimen>
+    <dimen name="left_fragment_condition_img_width">33px</dimen>
+    <dimen name="left_fragment_condition_img_height">33px</dimen>
+    <dimen name="rightFragment_show_layout_width">412px</dimen>
+    <dimen name="rightFragment_show_layout_height">119px</dimen>
+    <dimen name="floatBtn_height">33px</dimen>
+    <dimen name="floatBtn_width">44px</dimen>
     <!--margin-->
-    <dimen name="margin_38">38px</dimen>
+    <dimen name="margin_top_38px">38px</dimen>
+    <dimen name="margin_bottom_38px">38px</dimen>
+    <dimen name="margin_top_20px">20px</dimen>
+    <dimen name="margin_top_14px">14px</dimen>
+    <dimen name="margin_top_12px">12px</dimen>
+    <dimen name="margin_top_10px">10px</dimen>
+    <dimen name="margin_top_40px">40px</dimen>
+    <dimen name="margin_top_15px">15px</dimen>
+
 </resources>

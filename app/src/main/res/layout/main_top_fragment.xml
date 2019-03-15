@@ -13,21 +13,23 @@
         <RelativeLayout
             android:id="@+id/network_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true">
 
             <ImageView
                 android:id="@+id/topFragment_gps_iv"
                 android:layout_width="23px"
                 android:layout_height="23px"
-                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
                 android:background="@drawable/ic_gps" />
 
             <ImageView
                 android:id="@+id/topFragment_network_iv"
                 android:layout_width="23px"
                 android:layout_height="23px"
-                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="20px"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/topFragment_gps_iv"
                 android:background="@drawable/network_2" />
         </RelativeLayout>
@@ -48,30 +50,32 @@
         <RelativeLayout
             android:id="@+id/battery_layout"
             android:layout_width="85px"
-            android:layout_height="15px"
+            android:layout_height="20px"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true">
 
             <ImageView
-
                 android:id="@+id/topFragment_battery_iv"
                 android:layout_width="45px"
                 android:layout_height="15px"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="4px"
+                android:layout_alignParentBottom="true"
                 android:layout_toLeftOf="@id/topFragment_battery_tv"
-                android:background="@drawable/ic_battery_100" />
+                android:background="@drawable/ic_battery_20" />
 
             <TextView
                 android:id="@+id/topFragment_battery_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_centerVertical="true"
                 android:includeFontPadding="false"
-                android:text="100%"
+                android:text="22%"
+                android:gravity="center"
                 android:textColor="@color/top_fragment_text_color"
-                android:textSize="15px" />
+                android:textSize="13px" />
         </RelativeLayout>
     </RelativeLayout>
 

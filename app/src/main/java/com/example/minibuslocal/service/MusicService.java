@@ -278,11 +278,15 @@ public class MusicService extends Service {
             String endPath = getStaMusicInfo(currentStationNum - 1);//终点站语音路径
 //            Log.d(TAG, "prepareData: "+ path + ":" + endPath);
             if (initStationMusicData(playType, path, endPath)) {
-                if (mediaPlayer.isPlaying()) {//正在播放
-                    index = 0;
-                    mediaPlayer.reset();//重置播放器
+                try {
+                    if (mediaPlayer.isPlaying()) {//正在播放
+                        index = 0;
+                        mediaPlayer.reset();//重置播放器
+                    }
+                    play();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                play();
             }
         }
 

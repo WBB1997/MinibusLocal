@@ -15,10 +15,10 @@
     <!--新UI版本-->
     <color name="activity_main_bg_color">#04051e</color>
     <color name="main_right_fragment2_text_color">#e8f2fa</color>
-    <color name="main_right_fragment1_btn_pressed_true_color1">#293542</color>
-    <color name="main_right_fragment1_btn_pressed_true_color2">#6b9598</color>
-    <color name="main_right_fragment1_btn_pressed_false_color1">#6b9697</color>
-    <color name="main_right_fragment1_btn_pressed_false_color2">#04061a</color>
+    <color name="main_right_fragment1_btn_pressed_true_borde">#293542</color>
+    <color name="main_right_fragment1_btn_pressed_true_color2">#7ea7ac</color>
+    <color name="main_right_fragment1_btn_pressed_false_borde">#6b9697</color>
+    <color name="main_right_fragment1_btn_pressed_false_fill">#7ea7ac</color>
     <color name="main_right_fragment1_btnText_color">#e7f4f8</color>
     <color name="main_left_fragment_text_color">#e1eef2</color>
     <color name="left_fragment_text_color">#83a6a9</color>

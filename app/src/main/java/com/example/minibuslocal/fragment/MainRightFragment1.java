@@ -82,24 +82,20 @@ public class MainRightFragment1 extends Fragment {
     public void changeBtnColor(int flag){
         if(flag == DRIVE_MODEL_AUTO){//如果当前是自动驾驶
             //自动驾驶状态关
-//            rightFragment1AutoDrive.setEnabled(false);
             rightFragment1AutoDrive.setBackgroundResource(R.drawable.btn_drawable);
             //远程驾驶状态开
-//            rightFragment1LongDrive.setEnabled(true);
-            rightFragment1LongDrive.setBackgroundResource(R.drawable.circle_border_pressed);
+            rightFragment1LongDrive.setBackgroundResource(R.drawable.right_fragment1_btn);
             //待机状态开
             rightFragment1Await.setEnabled(true);
-            rightFragment1Await.setBackgroundResource(R.drawable.circle_border_pressed);
+            rightFragment1Await.setBackgroundResource(R.drawable.right_fragment1_btn);
         }else if(flag == DRIVE_MODEL_REMOTE){//如果当前是远程驾驶
             //远程驾驶状态关
-//            rightFragment1LongDrive.setEnabled(false);
             rightFragment1LongDrive.setBackgroundResource(R.drawable.btn_drawable);
             //自动驾驶状态开
-//            rightFragment1AutoDrive.setEnabled(true);
-            rightFragment1AutoDrive.setBackgroundResource(R.drawable.circle_border_pressed);
+            rightFragment1AutoDrive.setBackgroundResource(R.drawable.right_fragment1_btn);
             //待机状态开
             rightFragment1Await.setEnabled(true);
-            rightFragment1Await.setBackgroundResource(R.drawable.circle_border_pressed);
+            rightFragment1Await.setBackgroundResource(R.drawable.right_fragment1_btn);
         }else if(flag == DRIVE_MODEL_AUTO_AWAIT){
 
         }

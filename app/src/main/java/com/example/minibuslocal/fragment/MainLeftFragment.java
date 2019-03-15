@@ -31,6 +31,7 @@ import static com.example.minibuslocal.bean.IntegerCommand.BCM_Flg_Stat_LeftTurn
 import static com.example.minibuslocal.bean.IntegerCommand.BCM_Flg_Stat_LowBeam;
 import static com.example.minibuslocal.bean.IntegerCommand.BCM_Flg_Stat_RearFogLamp;
 import static com.example.minibuslocal.bean.IntegerCommand.BCM_Flg_Stat_RightTurningLamp;
+import static com.example.minibuslocal.bean.IntegerCommand.BCM_InsideTemp;
 import static com.example.minibuslocal.bean.IntegerCommand.HMI_Dig_Ord_DangerAlarm;
 import static com.example.minibuslocal.bean.IntegerCommand.HMI_Dig_Ord_Demister_Control;
 import static com.example.minibuslocal.bean.IntegerCommand.HMI_Dig_Ord_FANPWM_Control;
@@ -66,11 +67,10 @@ public class MainLeftFragment extends Fragment {
     private ImageButton leftFragmentCoolAirImg;//冷气
     private ImageButton leftFragmentHotAirImg;//暖气
     private ImageButton leftFragmentDeFogImg;//除雾
-//    private LinearLayout leftFragmentCoolAir;//冷气布局
-//    private LinearLayout leftFragmentHotAir;//暖气布局
-//    private LinearLayout leftFragmentDeFog;//除雾布局
+    private ImageButton leftFragmentOffImg;//OFF
     private TextView leftFragmentConditionSize;//风扇大小
     private SeekBar leftFragmentSeekBar;//风扇滑动条
+    private TextView leftFragmentTemperatureTv;//车内温度
     //发送CAN总线的数据
     private String clazz = "HMI";//所属类名
     private int field = -1;//属性
@@ -120,21 +120,23 @@ public class MainLeftFragment extends Fragment {
         leftFragmentRightLight = (ImageButton) view.findViewById(R.id.leftFragment_rightLight);
         leftFragmentRightLight.setOnClickListener(onClickListener);
         leftFragmentAuto = (Button) view.findViewById(R.id.leftFragment_auto);
+        leftFragmentAuto.setOnClickListener(onClickListener);
         leftFragmentErrorLight = (ImageButton) view.findViewById(R.id.leftFragment_errorLight);
         leftFragmentErrorLight.setOnClickListener(onClickListener);
         leftFragmentCoolAirImg = (ImageButton) view.findViewById(R.id.leftFragment_coolAir_img);
+        leftFragmentCoolAirImg.setOnClickListener(onClickListener);
         leftFragmentHotAirImg = (ImageButton) view.findViewById(R.id.leftFragment_hotAir_img);
+        leftFragmentHotAirImg.setOnClickListener(onClickListener);
         leftFragmentDeFogImg = (ImageButton) view.findViewById(R.id.leftFragment_deFog_img);
-//        leftFragmentCoolAir = (LinearLayout) view.findViewById(R.id.leftFragment_coolAir);
-//        leftFragmentCoolAir.setOnClickListener(onClickListener);
-//        leftFragmentHotAir = (LinearLayout) view.findViewById(R.id.leftFragment_hotAir);
-//        leftFragmentHotAir.setOnClickListener(onClickListener);
-//        leftFragmentDeFog = (LinearLayout) view.findViewById(R.id.leftFragment_deFog);
-//        leftFragmentDeFog.setOnClickListener(onClickListener);
+        leftFragmentDeFogImg.setOnClickListener(onClickListener);
+        leftFragmentOffImg = (ImageButton)view.findViewById(R.id.leftFragment_off_img);
+        leftFragmentOffImg.setOnClickListener(onClickListener);
+        leftFragmentOffImg.setActivated(true);//默认为开
         leftFragmentConditionSize = (TextView) view.findViewById(R.id.leftFragment_condition_size);
         leftFragmentSeekBar = (SeekBar) view.findViewById(R.id.leftFragment_seekBar);
         leftFragmentSeekBar.setEnabled(false);//默认滑动条无法点击
         leftFragmentSeekBar.setOnSeekBarChangeListener(onSeekBarChangeListener);
+        leftFragmentTemperatureTv = (TextView) view.findViewById(R.id.leftFragment_temperature_tv);
         //设置滑块颜色
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             leftFragmentSeekBar.getThumb().setColorFilter(Color.parseColor("#9cf8f8"), PorterDuff.Mode.SRC_ATOP);
@@ -295,6 +297,10 @@ public class MainLeftFragment extends Fragment {
                     o = transInt(leftFragmentErrorLight.isActivated());
                     break;
                 }
+                case R.id.leftFragment_auto:{//自动灯
+                    leftFragmentAuto.setActivated(!leftFragmentAuto.isActivated());
+                    break;
+                }
                 case R.id.leftFragment_coolAir_img: {//冷气
                     leftFragmentCoolAirImg.setActivated(!leftFragmentCoolAirImg.isActivated());
                     if (leftFragmentCoolAirImg.isActivated()) {//如果冷气是开的
@@ -304,6 +310,8 @@ public class MainLeftFragment extends Fragment {
                         //关闭暖气
                         leftFragmentHotAirImg.setActivated(false);
 //                        leftFragmentHotAir.setActivated(false);
+                        //关闭OFF挡
+                        leftFragmentOffImg.setActivated(false);
                     } else {
                         leftFragmentCoolAirImg.setActivated(false);
                     }
@@ -316,6 +324,8 @@ public class MainLeftFragment extends Fragment {
                             o = ARI_MODEL_CLOSE;//关闭
                             //滑动条不可点击
                             seekBarIndex = AIR_GRADE_OFF;//变为OFF档
+                            //打开OFF挡
+                            leftFragmentOffImg.setActivated(true);
                             leftFragmentSeekBar.setEnabled(false);
                             leftFragmentSeekBar.setProgress(0);
                             leftFragmentConditionSize.setText("0");
@@ -332,6 +342,8 @@ public class MainLeftFragment extends Fragment {
                         //关闭冷气
                         leftFragmentCoolAirImg.setActivated(false);
 //                        leftFragmentCoolAir.setActivated(false);
+                        //关闭OFF挡
+                        leftFragmentOffImg.setActivated(false);
                     } else {
                         leftFragmentHotAirImg.setActivated(false);
                     }
@@ -344,10 +356,28 @@ public class MainLeftFragment extends Fragment {
                             o = ARI_MODEL_CLOSE;//关闭
                             //滑动条不可点击
                             seekBarIndex = AIR_GRADE_OFF;
+                            //打开OFF挡
+                            leftFragmentOffImg.setActivated(true);
                             leftFragmentSeekBar.setEnabled(false);
                             leftFragmentSeekBar.setProgress(0);
                             leftFragmentConditionSize.setText("0");
                         }
+                    }
+                    break;
+                }
+                case R.id.leftFragment_off_img:{//off挡
+                    if(!leftFragmentOffImg.isActivated()){//当OFF挡为关的时候
+                        leftFragmentOffImg.setActivated(true);
+                        leftFragmentCoolAirImg.setActivated(false);
+                        leftFragmentHotAirImg.setActivated(false);
+                        typeFlag = true;
+                        field = HMI_Dig_Ord_air_model;//空调模式
+                        o = ARI_MODEL_CLOSE;//关闭
+                        //滑动条不可点击
+                        seekBarIndex = AIR_GRADE_OFF;
+                        leftFragmentSeekBar.setEnabled(false);
+                        leftFragmentSeekBar.setProgress(0);
+                        leftFragmentConditionSize.setText("0");
                     }
                     break;
                 }
@@ -472,6 +502,10 @@ public class MainLeftFragment extends Fragment {
             }
             case BCM_DemisterStatus: {//除雾状态
                 leftFragmentDeFogImg.setActivated((boolean)data);
+                break;
+            }
+            case BCM_InsideTemp:{//车内温度
+                leftFragmentTemperatureTv.setText(String.valueOf((int)((double)data)));
                 break;
             }
 //            case VCU_ACWorkingStatus:{//空调工作模式信号

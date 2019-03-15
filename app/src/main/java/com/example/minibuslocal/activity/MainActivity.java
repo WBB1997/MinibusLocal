@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.minibuslocal.R;
@@ -87,7 +88,7 @@ public class MainActivity extends BaseActivity {
     private MainRightFragment1 rightFragment1;
     private MainRightFragment2 rightFragment2;//右边Fragment(车速、)
     private MainLowBatteryFragment lowBatteryFragment;//低电量报警
-    private ImageButton floatBtn;//悬浮按钮
+    private RelativeLayout floatBtn;//悬浮按钮
     private Thread canThread;//处理CAN总线的子线程
     private Thread sreialThread;//处理485的子线程
     private SreialComm sreialComm;//串口
@@ -99,8 +100,6 @@ public class MainActivity extends BaseActivity {
     private MainRightFragment2.ReadSpeedTimer readSpeedTimer;
     private boolean loginFlag = false;//是否登陆成功
     private int lastStationId = 0;//下一站点id
-    //
-//    private LogFragment logFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,7 +196,7 @@ public class MainActivity extends BaseActivity {
         canThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Transmit.getInstance().setHandler(mContext,handler);
+                Transmit.getInstance().setHandler(mContext, handler);
             }
         });
         canThread.start();
@@ -209,11 +208,7 @@ public class MainActivity extends BaseActivity {
                 sreialComm.receive();
             }
         });
-        sreialThread.start();
-        //模拟定时发送
-//        timerManager = new TimerManager(handler);
-//        timerManager.startTimer();
-//        leftFragment.setTimerManager(timerManager);
+//        sreialThread.start();
     }
 
     /**
@@ -236,19 +231,19 @@ public class MainActivity extends BaseActivity {
     /**
      * 播放站点音乐
      */
-    private void playStationMusic(JSONObject object){
+    private void playStationMusic(final JSONObject object) {
         int id = object.getIntValue("id");
         int data = object.getIntValue("data");
         if (id == HAD_CurrentDrivingRoadIDNum) {//当前行驶路线ID
             musicBinder.setLoRouteNum(data);
         } else if (id == HAD_NextStationIDNumb) {//下一个站点ID
             lastStationId = data;
-        } else if(id == HAD_ArrivingSiteRemind){//到站提醒
-            musicBinder.prepareData(data,lastStationId);
-        } else if(id == HAD_StartingSitedepartureRemind){//起始站出发提醒
-            if(data == 2){//起始站出发提醒
+        } else if (id == HAD_ArrivingSiteRemind) {//到站提醒
+            musicBinder.prepareData(data, lastStationId);
+        } else if (id == HAD_StartingSitedepartureRemind) {//起始站出发提醒
+            if (data == 2) {//起始站出发提醒
                 lastStationId = 1;//下一站为1
-                musicBinder.prepareData(3,lastStationId);
+                musicBinder.prepareData(3, lastStationId);
             }
         }
     }
@@ -276,20 +271,17 @@ public class MainActivity extends BaseActivity {
      * 初始化控件
      */
     private void viewInit(boolean isShow) {
-        floatBtn = (ImageButton) findViewById(R.id.floatBtn);
+        floatBtn = (RelativeLayout) findViewById(R.id.floatBtn_layout);
         floatBtn.setOnClickListener(onClickListener);
         //初始化右边Fragment
         fragmentManager = getSupportFragmentManager();
         topFragment = (MainTopFragment) fragmentManager.findFragmentById(R.id.top_fragment);
         leftFragment = (MainLeftFragment) fragmentManager.findFragmentById(R.id.left_fragment);
-//        centerFragment = (MainCenterFragment) fragmentManager.findFragmentById(R.id.center_fragment);
+        centerFragment = (MainCenterFragment) fragmentManager.findFragmentById(R.id.center_fragment);
         lowBatteryFragment = new MainLowBatteryFragment();
         rightFragment1 = new MainRightFragment1();
         rightFragment2 = new MainRightFragment2();
-//        logFragment = new LogFragment();测试
-
         transaction = fragmentManager.beginTransaction();
-//        transaction.add(R.id.center_fragment,logFragment);//测试
         transaction.add(R.id.right_fragment, rightFragment1);//右边
         transaction.add(R.id.right_fragment, rightFragment2).hide(rightFragment2);
         transaction.add(R.id.lowBattery_fragment, lowBatteryFragment).hide(lowBatteryFragment);//加入低电量报警并隐藏
@@ -335,18 +327,20 @@ public class MainActivity extends BaseActivity {
             LogUtil.d(TAG, object.toJSONString());
             switch (msg.what) {
                 case SEND_TO_FRONTSCREEN: {//前风挡
-                    new SendToScreenThread(mContext,object, SEND_TO_FRONTSCREEN).start();
+                    new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
+                    playStationMusic(object);
 //                    LogUtil.d(TAG, "发送信息给前风挡");
                     break;
                 }
                 case SEND_TO_RIGHTSCREEN: {//右车门
-                    new SendToScreenThread(mContext,object, SEND_TO_RIGHTSCREEN).start();
+                    new SendToScreenThread(mContext, object, SEND_TO_RIGHTSCREEN).start();
 //                    LogUtil.d(TAG, "发送信息给右车门");
                     break;
                 }
                 case SEND_TO_LEFTSCREEN: {//左车门
-                    new SendToScreenThread(mContext,object, SEND_TO_LEFTSCREEN).start();
+                    new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
                     playStationMusic(object);
+//                    centerFragment.refresh(object);
 //                    LogUtil.d(TAG, "发送信息给左车门");
                     break;
                 }
@@ -356,7 +350,7 @@ public class MainActivity extends BaseActivity {
                     if (screenId == LOCALHOST_SCREEN_TOP) {//上部Fragment
                         topFragment.refresh(object);
                         int id = object.getIntValue("id");
-                        if(id == BMS_SOC){
+                        if (id == BMS_SOC) {
                             int battery = object.getIntValue("data");
                             if (battery <= MIN_BATTERY) {//低电量报警
                                 showLowBatteryFragment(true);
@@ -370,7 +364,6 @@ public class MainActivity extends BaseActivity {
                         centerFragment.refresh(object);
                     } else if (screenId == LOCALHOST_SCREEN_RIGHT) {//右边Fragment
                         if (autoDriveModel) {//自动驾驶模式开启即处理数据
-//                            rightFragment2 = (MainRightFragment2) fragmentManager.findFragmentById(R.id.right_fragment);
                             int id = object.getIntValue("id");
                             if (id == Wheel_Speed_ABS) {//速度
                                 int speed = (int) object.getDoubleValue("data");
@@ -389,15 +382,13 @@ public class MainActivity extends BaseActivity {
                     break;
                 }
                 case SEND_TO_SCREEN: {//发送给前风挡、左右车门
-                    new SendToScreenThread(mContext,object, SEND_TO_FRONTSCREEN).start();
-                    new SendToScreenThread(mContext,object, SEND_TO_LEFTSCREEN).start();
-                    new SendToScreenThread(mContext,object, SEND_TO_RIGHTSCREEN).start();
+                    new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
+                    new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
+                    new SendToScreenThread(mContext, object, SEND_TO_RIGHTSCREEN).start();
+                    playStationMusic(object);
 //                    LogUtil.d(TAG, "都发");
                     break;
                 }
-//                case 10:{
-//                    logFragment.appendLog(object);
-//                }
                 default:
                     break;
             }
@@ -417,10 +408,10 @@ public class MainActivity extends BaseActivity {
         switch (id) {
             case SystemStatus: {//RCU系统运行状态信号
                 changeSu = true;
-                if(data == 0){//自动驾驶正常
+                if (data == 0) {//自动驾驶正常
                     msg = "自动驾驶正常";
                     currentDriveModel = DRIVE_MODEL_AUTO;//当前为自动驾驶
-                }else if (data == 1) {//自动驾驶故障
+                } else if (data == 1) {//自动驾驶故障
                     msg = "自动驾驶故障";
                     currentDriveModel = DRIVE_MODEL_AUTO;//当前为自动驾驶
                 } else if (data == 2) {//远程驾驶正常
@@ -435,7 +426,7 @@ public class MainActivity extends BaseActivity {
             case OBU_Dig_Ord_SystemStatus: {//OBU系统运行状态信号
                 if (data == 0) {
                     msg = "无输入";
-                }else if (data == 1) {
+                } else if (data == 1) {
                     msg = "OBU系统运行正常";
                 } else if (data == 2) {
                     msg = "OBU系统故障";
@@ -445,7 +436,7 @@ public class MainActivity extends BaseActivity {
                 break;
             }
         }
-        if(data == 1 || data == 3){
+        if (data == 1 || data == 3) {
             ToastUtil.getInstance(mContext).showLengthToast(msg);
         }
         rightFragment1.changeBtnColor(currentDriveModel);
@@ -483,6 +474,10 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             musicBinder = (MusicService.MusicBinder) service;
+            //模拟定时发送
+//            timerManager = new TimerManager(handler);
+//            timerManager.startTimer();
+//            leftFragment.setTimerManager(timerManager);
             LogUtil.d(TAG, "connection-->onServiceConnected");
         }
 
@@ -496,7 +491,7 @@ public class MainActivity extends BaseActivity {
      * 锁屏状态
      */
     private void showShadeDialog() {
-        if(canThread != null){
+        if (canThread != null) {
             canThread.interrupt();
         }
         Dialog dialog = new Dialog(mContext, R.style.activity_translucent);
@@ -513,7 +508,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onSingleClick(View v) {
             switch (v.getId()) {
-                case R.id.floatBtn: {//悬浮按钮(退出各种模式)
+                case R.id.floatBtn_layout: {//悬浮按钮(退出各种模式)
                     showFragment(rightFragment2, false);
                     showFragment(rightFragment1, true);
                     floatBtn.setVisibility(View.INVISIBLE);
@@ -565,7 +560,7 @@ public class MainActivity extends BaseActivity {
                             int field = HMI_Dig_Ord_Driver_model;
                             autoDriveModel = true;//驾驶模式打开
                             Transmit.getInstance().setADAndRCUFlag(true);
-                            Log.d(TAG, "onActivityResult: "+clickDriveModel);
+                            Log.d(TAG, "onActivityResult: " + clickDriveModel);
                             sendToCAN(clazz, field, clickDriveModel);//发送数据
 //                            LogUtil.d(TAG,"登陆成功");
                         } else {//登陆失败
@@ -667,10 +662,10 @@ public class MainActivity extends BaseActivity {
             case BCM_ACBlowingLevel://空调风量档位
             case BCM_DemisterStatus://除雾状态
 //            case VCU_ACWorkingStatus://空调工作模式信号
+            case BCM_InsideTemp://车内温度
+//            case BCM_OutsideTemp://车外温度
                 return LOCALHOST_SCREEN_LEFT;
             //右边Fragment
-//            case BCM_InsideTemp://车内温度
-//            case BCM_OutsideTemp://车外温度
             case can_num_PackAverageTemp://电池包平均温度
 //            case can_RemainKm://剩余里程数
             case Wheel_Speed_ABS://车速信号
@@ -679,11 +674,6 @@ public class MainActivity extends BaseActivity {
 //            case HAD_GPSLongitude://经度
 //                return LOCALHOST_SCREEN_CENTER;
             case SystemStatus://RCU主控请求状态反馈
-//            case HAD_Dig_Ord_SystemStatus://HAD行驶状态
-//            case RCU_Dig_Ord_SystemStatus://RCU系统运行状态信号
-//            case OBU_Dig_Ord_SystemStatus://OBU系统运行状态信号
-//            case RCU_MainControlChangeFeedBack://AD主控请求状态反馈
-//            case AD_MainControlChangeFeedBack://RCU主控请求状态反馈
                 return LOCALHOST_SCREEN_OTHER;
             default:
                 return -1;

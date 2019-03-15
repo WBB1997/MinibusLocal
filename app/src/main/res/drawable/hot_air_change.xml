@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--暖气切换-->
+    <item android:state_activated="true" android:drawable="@drawable/hot_air_true"/>
+    <item android:state_activated="false" android:drawable="@drawable/hot_air_false"/>
+</selector>

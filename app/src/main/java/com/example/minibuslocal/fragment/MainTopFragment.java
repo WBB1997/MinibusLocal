@@ -27,7 +27,7 @@ public class MainTopFragment extends Fragment {
     private MainActivity activity;
     private TextView topFragmentTime;//时间
     private TextView topFragmentBatteryTv;//电池文字信息
-    private ImageView topFragment_batteryIv;//电池图片
+    private ImageView topFragmentBatteryIv;//电池图片
     private TimeThread timeThread;//时间线程
 
     public MainTopFragment() {
@@ -45,7 +45,7 @@ public class MainTopFragment extends Fragment {
         View view = inflater.inflate(R.layout.main_top_fragment,container,false);
         topFragmentTime = (TextView)view.findViewById(R.id.topFragment_time);
         topFragmentBatteryTv = (TextView)view.findViewById(R.id.topFragment_battery_tv);
-        topFragment_batteryIv = (ImageView) view.findViewById(R.id.topFragment_battery_iv);
+        topFragmentBatteryIv = (ImageView) view.findViewById(R.id.topFragment_battery_iv);
 //        timeThread = new TimeThread(activity,topFragmentTime);
 //        timeThread.start();
         return view;
@@ -70,6 +70,19 @@ public class MainTopFragment extends Fragment {
             //电量显示
             int battryNum = (int) object.getDoubleValue("data");
             topFragmentBatteryTv.setText(String.valueOf(battryNum)+"%");
+            if(battryNum >=0 && battryNum < 17){
+                topFragmentBatteryIv.setBackgroundResource(R.drawable.ic_battery_10);
+            }else if(battryNum >= 17 && battryNum < 37){
+                topFragmentBatteryIv.setBackgroundResource(R.drawable.ic_battery_20);
+            }else if(battryNum >=37 && battryNum < 54){
+                topFragmentBatteryIv.setBackgroundResource(R.drawable.ic_battery_30);
+            }else if(battryNum >= 54 && battryNum < 71){
+                topFragmentBatteryIv.setBackgroundResource(R.drawable.ic_battery_40);
+            }else if(battryNum >= 71 && battryNum < 90){
+                topFragmentBatteryIv.setBackgroundResource(R.drawable.ic_battery_50);
+            }else if(battryNum >= 90){
+                topFragmentBatteryIv.setBackgroundResource(R.drawable.ic_battery_60);
+            }
         }
         if(id == HAD_GPSPositioningStatus){//GPS状态
 

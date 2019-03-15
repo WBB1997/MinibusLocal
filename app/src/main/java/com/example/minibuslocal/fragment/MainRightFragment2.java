@@ -112,7 +112,7 @@ public class MainRightFragment2 extends Fragment {
                 totalRemainKmFlag = false;
             }
             int d = (int) (((totalRemainKm - data) / totalRemainKm) * 100);
-            rightFragment2Renwujd.setText(String.valueOf(d));
+            rightFragment2Renwujd.setText(String.valueOf(d)+" %");
         }
         if (id == can_num_PackAverageTemp) {//电池包平均温度
             int data = (int) object.getDoubleValue("data");
@@ -121,7 +121,7 @@ public class MainRightFragment2 extends Fragment {
                         getResources().getColor(R.color.main_battery_color));
             } else {
                 rightFragment2BatteryTemperature.setTextColor(
-                        getResources().getColor(R.color.right_fragment1_text_color));
+                        getResources().getColor(R.color.main_right_fragment2_text_color));
             }
             rightFragment2BatteryTemperature.setText(String.valueOf(data));
         }
@@ -191,8 +191,8 @@ public class MainRightFragment2 extends Fragment {
                                 @Override
                                 public void run() {
                                     rightFragment2Speed.setText(String.format("%.1f", newSpeed));
-                                    rightFragment2Zonlic.setText(String.format("%.2f", totalMile));
-                                    rightFragment2Pingjunss.setText(String.valueOf((int) calculateAvgSpeed(newSpeed)));
+                                    rightFragment2Zonlic.setText(String.format("%.2f", totalMile)+" km");
+                                    rightFragment2Pingjunss.setText(String.valueOf((int) calculateAvgSpeed(newSpeed))+" km/h");
                                 }
                             });
                             activity.sendToCAN("HMI", HMI_Dig_Ord_TotalOdmeter, (int) totalMile);

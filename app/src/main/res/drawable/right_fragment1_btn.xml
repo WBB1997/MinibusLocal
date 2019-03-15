@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--没有按压-->
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <!--填充的颜色-->
+            <solid android:color="@android:color/transparent"/>
+            <!--圆角半径-->
+            <corners android:radius="10px"/>
+            <!--边框颜色-->
+            <stroke android:width="2px" android:color="@color/main_right_fragment1_btn_pressed_false_borde"/>
+        </shape>
+    </item>
+    <!--按压了-->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!--填充的颜色-->
+            <solid android:color="@color/main_right_fragment1_btn_pressed_false_fill"/>
+            <!--圆角半径-->
+            <corners android:radius="10px"/>
+            <!--边框颜色-->
+            <stroke android:width="2px" android:color="@color/main_right_fragment1_btn_pressed_true_borde"/>
+        </shape>
+    </item>
+</selector>

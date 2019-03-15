@@ -10,19 +10,20 @@
         android:layout_width="@dimen/activity_main_top_width"
         android:layout_height="@dimen/activity_main_top_height"
         android:gravity="center">
+
         <fragment
             android:id="@+id/top_fragment"
+            android:name="com.example.minibuslocal.fragment.MainTopFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="com.hasee.minibuslocalhost.fragment.MainTopFragment"
             tools:layout="@layout/main_top_fragment" />
         <!--低电量报警部分-->
         <FrameLayout
             android:id="@+id/lowBattery_fragment"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true" />
+            android:layout_marginLeft="1260px" />
     </RelativeLayout>
     <!--下部分-->
     <RelativeLayout
@@ -37,13 +38,14 @@
             android:layout_height="@dimen/activity_main_left_height"
             android:layout_toLeftOf="@id/down_center_layout"
             android:gravity="center">
+
             <fragment
                 android:id="@+id/left_fragment"
+                android:name="com.example.minibuslocal.fragment.MainLeftFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:name="com.hasee.minibuslocalhost.fragment.MainLeftFragment"
-                tools:layout="@layout/main_left_fragment"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true"
+                tools:layout="@layout/main_left_fragment" />
         </RelativeLayout>
         <!--中间部分-->
         <RelativeLayout
@@ -56,9 +58,10 @@
 
             <fragment
                 android:id="@+id/center_fragment"
-                android:name="com.hasee.minibuslocalhost.fragment.MainCenterFragment_new"
+                android:name="com.example.minibuslocal.fragment.MainCenterFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 tools:layout="@layout/main_center_fragment" />
         </RelativeLayout>
         <!--右边部分-->
@@ -72,24 +75,28 @@
                 android:id="@+id/right_fragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"/>
-            <!--悬浮按钮-->
-            <FrameLayout
-                android:layout_width="@dimen/main_layout_floatBtn_width"
-                android:layout_height="@dimen/main_layout_floatBtn_height"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true">
-
-                <ImageButton
-                    android:id="@+id/floatBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="@drawable/floatbtn"
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
-                    android:visibility="invisible" />
-            </FrameLayout>
+                android:layout_centerInParent="true" />
         </RelativeLayout>
+    </RelativeLayout>
+    <!--悬浮按钮-->
+    <RelativeLayout
+        android:id="@+id/floatBtn_layout"
+        android:layout_width="@dimen/main_layout_floatBtn_width"
+        android:layout_height="@dimen/main_layout_floatBtn_height"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60px"
+        android:background="@drawable/ic_floatbtn_bg"
+        android:clickable="true"
+        android:descendantFocusability="blocksDescendants"
+        android:visibility="invisible">
+
+        <ImageButton
+            android:layout_width="@dimen/floatBtn_width"
+            android:layout_height="@dimen/floatBtn_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_floatbtn"
+            android:clickable="false"
+            android:duplicateParentState="true" />
     </RelativeLayout>
 </RelativeLayout>

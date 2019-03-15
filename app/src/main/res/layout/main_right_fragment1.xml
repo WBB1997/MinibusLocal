@@ -19,8 +19,8 @@
         android:layout_height="@dimen/main_right_fragment1_button_height"
         android:layout_below="@id/rightFragment1_autoDrive"
         android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/margin_38"
-        android:layout_marginBottom="@dimen/margin_38"
+        android:layout_marginTop="@dimen/margin_top_38px"
+        android:layout_marginBottom="@dimen/margin_bottom_38px"
         android:text="远程驾驶"
         android:background="@drawable/right_fragment1_btn"
         android:textColor="@color/main_right_fragment1_btnText_color" />
