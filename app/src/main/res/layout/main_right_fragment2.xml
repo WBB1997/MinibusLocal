@@ -138,7 +138,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="14px"
-            android:layout_marginTop="@dimen/margin_top_15px">
+            android:layout_marginTop="@dimen/margin_top_15px"
+            android:visibility="invisible">
 
             <TextView
                 android:id="@+id/driveInfo"

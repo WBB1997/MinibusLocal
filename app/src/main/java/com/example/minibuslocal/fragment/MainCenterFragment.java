@@ -124,9 +124,7 @@ public class MainCenterFragment extends Fragment {
         int id = object.getIntValue("id");
         int data = object.getIntValue("data");
         Log.d(TAG, "refresh: "+id+":"+data);
-        if (id == HAD_NextStationIDNumb) {//下一个站点ID
-            lastStationId = data;
-        } else if (id == HAD_ArrivingSiteRemind) {//到站提醒
+        if (id == HAD_ArrivingSiteRemind && data == 2) {//到站提醒
             if(index == 0){
                 index = 1;
             }else if(index == 1){

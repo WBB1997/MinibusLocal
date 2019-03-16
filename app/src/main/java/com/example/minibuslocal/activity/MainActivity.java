@@ -358,9 +358,9 @@ public class MainActivity extends BaseActivity {
                             }
                         }
                     } else if (screenId == LOCALHOST_SCREEN_LEFT) {//左边Fragment
-                        leftFragment.refresh(object);
+//                        leftFragment.refresh(object);
                     } else if (screenId == LOCALHOST_SCREEN_CENTER) {//中间Fragment
-                        centerFragment.refresh(object);
+//                        centerFragment.refresh(object);
                     } else if (screenId == LOCALHOST_SCREEN_RIGHT) {//右边Fragment
                         if (autoDriveModel) {//自动驾驶模式开启即处理数据
                             int id = object.getIntValue("id");
@@ -385,7 +385,7 @@ public class MainActivity extends BaseActivity {
                     new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
                     new SendToScreenThread(mContext, object, SEND_TO_RIGHTSCREEN).start();
                     playStationMusic(object);
-                    centerFragment.refresh(object);
+//                    centerFragment.refresh(object);
 //                    LogUtil.d(TAG, "都发");
                     break;
                 }
@@ -662,7 +662,7 @@ public class MainActivity extends BaseActivity {
             case BCM_ACBlowingLevel://空调风量档位
             case BCM_DemisterStatus://除雾状态
 //            case VCU_ACWorkingStatus://空调工作模式信号
-            case BCM_InsideTemp://车内温度
+//            case BCM_InsideTemp://车内温度
 //            case BCM_OutsideTemp://车外温度
                 return LOCALHOST_SCREEN_LEFT;
             //右边Fragment

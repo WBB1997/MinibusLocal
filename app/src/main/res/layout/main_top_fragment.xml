@@ -43,7 +43,7 @@
             android:layout_toRightOf="@id/network_layout"
             android:gravity="center"
             android:includeFontPadding="true"
-            android:text="12:00"
+            android:text="23:59"
             android:textScaleX="0.5"
             android:textColor="@color/top_fragment_text_color"
             android:textSize="60px" />
