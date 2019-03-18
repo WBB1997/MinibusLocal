@@ -328,7 +328,7 @@ public class MainActivity extends BaseActivity {
             switch (msg.what) {
                 case SEND_TO_FRONTSCREEN: {//前风挡
                     new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
-                    playStationMusic(object);
+//                    playStationMusic(object);
 //                    LogUtil.d(TAG, "发送信息给前风挡");
                     break;
                 }
@@ -339,7 +339,7 @@ public class MainActivity extends BaseActivity {
                 }
                 case SEND_TO_LEFTSCREEN: {//左车门
                     new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
-                    playStationMusic(object);
+//                    playStationMusic(object);
 //                    LogUtil.d(TAG, "发送信息给左车门");
                     break;
                 }
@@ -384,8 +384,8 @@ public class MainActivity extends BaseActivity {
                     new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
                     new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
                     new SendToScreenThread(mContext, object, SEND_TO_RIGHTSCREEN).start();
-                    playStationMusic(object);
-//                    centerFragment.refresh(object);
+//                    playStationMusic(object);
+                    centerFragment.refresh(object);
 //                    LogUtil.d(TAG, "都发");
                     break;
                 }

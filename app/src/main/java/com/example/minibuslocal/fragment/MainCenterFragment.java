@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.minibuslocal.R;
+import com.example.minibuslocal.view.CustomVideoView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,12 +43,13 @@ public class MainCenterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_center_fragment,container,false);
         centerFragmentMap = (ImageView) view.findViewById(R.id.center_fragment_map);
-        centerFragmentVideoView = (VideoView)view.findViewById(R.id.center_fragment_videoView);
+        centerFragmentVideoView = (CustomVideoView)view.findViewById(R.id.center_fragment_videoView);
         centerFragmentVideoView.setOnCompletionListener(onCompletionListener);
         centerFragmentVideoView.setOnErrorListener(onErrorListener);
 //        centerFragmentVideoView.setOnPreparedListener(onPreparedListener);
         return view;
     }
+
 
     /**
      * 切换显示

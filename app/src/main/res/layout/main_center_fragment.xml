@@ -11,7 +11,7 @@
         android:background="@drawable/ic_center_map"
         android:visibility="visible" />
 
-    <VideoView
+    <com.example.minibuslocal.view.CustomVideoView
         android:id="@+id/center_fragment_videoView"
         android:layout_width="@dimen/main_center_fragment_width"
         android:layout_height="@dimen/main_center_fragment_height"
