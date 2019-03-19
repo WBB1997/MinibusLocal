@@ -100,6 +100,7 @@ public class MainActivity extends BaseActivity {
     private MainRightFragment2.ReadSpeedTimer readSpeedTimer;
     private boolean loginFlag = false;//是否登陆成功
     private int lastStationId = 0;//下一站点id
+    private int currentSpeed = 0;//当前车速
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -310,9 +311,15 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-//        if(timerManager != null){
-//            timerManager.setPause(false);
-//        }
+//        final JSONObject object = new JSONObject();
+//        object.put("id","76");
+//        object.put("data","2");
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                centerFragment.refresh(object);
+//            }
+//        });
         return super.onTouchEvent(event);
     }
 
@@ -327,7 +334,15 @@ public class MainActivity extends BaseActivity {
             LogUtil.d(TAG, object.toJSONString());
             switch (msg.what) {
                 case SEND_TO_FRONTSCREEN: {//前风挡
-                    new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
+                    int id = object.getIntValue("id");
+                    if(id == HAD_PedestrianAvoidanceRemind && currentSpeed == 0){//行人避让并且速度为0
+                        int data = object.getIntValue("data");
+                        if(currentSpeed == 0 && data == 2){
+                            new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
+                        }
+                    }else if(id != HAD_PedestrianAvoidanceRemind){//不是行人避让时
+                        new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
+                    }
 //                    playStationMusic(object);
 //                    LogUtil.d(TAG, "发送信息给前风挡");
                     break;
@@ -365,8 +380,8 @@ public class MainActivity extends BaseActivity {
                         if (autoDriveModel) {//自动驾驶模式开启即处理数据
                             int id = object.getIntValue("id");
                             if (id == Wheel_Speed_ABS) {//速度
-                                int speed = (int) object.getDoubleValue("data");
-                                if (speed <= MIN_SPEED) {//低速
+                                currentSpeed = (int) object.getDoubleValue("data");
+                                if (currentSpeed <= MIN_SPEED) {//低速
                                     //发送低速报警消息
                                     sendToCAN("HMI", HMI_Dig_Ord_Alam, Ord_Alam_ON);
                                 } else {
@@ -375,7 +390,7 @@ public class MainActivity extends BaseActivity {
                             }
                             rightFragment2.refresh(object);
                         }
-                    } else if (screenId == LOCALHOST_SCREEN_OTHER) {
+                    } else if (screenId == LOCALHOST_SCREEN_OTHER) {//
                         refresh(object);
                     }
                     break;
@@ -421,6 +436,9 @@ public class MainActivity extends BaseActivity {
                     msg = "远程驾驶故障";
                     currentDriveModel = DRIVE_MODEL_REMOTE;//当前为远程驾驶
                 }
+                new SendToScreenThread(mContext, object, SEND_TO_FRONTSCREEN).start();
+                new SendToScreenThread(mContext, object, SEND_TO_LEFTSCREEN).start();
+                new SendToScreenThread(mContext, object, SEND_TO_RIGHTSCREEN).start();
                 break;
             }
             case OBU_Dig_Ord_SystemStatus: {//OBU系统运行状态信号

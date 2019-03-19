@@ -106,17 +106,19 @@ public class MainCenterFragment extends Fragment {
         super.onPause();
         lastProgress = centerFragmentVideoView.getCurrentPosition();
         centerFragmentVideoView.stopPlayback();
-        Log.d(TAG, "onPause: ");
+        Log.d(TAG, "onPause: "+lastProgress);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+//        Log.d(TAG, "onResume: "+lastProgress);
         if(lastProgress >= 0){
             centerFragmentVideoView.seekTo(lastProgress);
+            centerFragmentVideoView.start();
             lastProgress = -1;
         }
-        Log.d(TAG, "onResume: ");
+        Log.d(TAG, "onResume: "+lastProgress);
     }
 
     /**
@@ -126,7 +128,7 @@ public class MainCenterFragment extends Fragment {
     public void refresh(JSONObject object) {
         int id = object.getIntValue("id");
         int data = object.getIntValue("data");
-        Log.d(TAG, "refresh: "+id+":"+data);
+//        Log.d(TAG, "refresh: "+id+":"+data);
         if (id == HAD_ArrivingSiteRemind && data == 2) {//到站提醒
             if(index == 0){
                 index = 1;
