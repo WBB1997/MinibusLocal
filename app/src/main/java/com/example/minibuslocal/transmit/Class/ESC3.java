@@ -39,7 +39,7 @@ public class ESC3 extends BaseClass {
         int index = entry.getKey();
         switch (index) {
             case 8:
-                return countBits(bytes, 0, index, 16, ByteUtil.Motorola) * 0.125;
+                return countBits(bytes, 0, index, 16, getState()) * 0.125;
             default:
                 LogUtil.d(TAG, "数据下标错误");
                 break;
@@ -49,7 +49,7 @@ public class ESC3 extends BaseClass {
 
     @Override
     public int getState() {
-        return ByteUtil.Motorola;
+        return ByteUtil.Intel;
     }
 
     @Override
