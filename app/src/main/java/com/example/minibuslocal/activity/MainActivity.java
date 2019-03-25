@@ -209,7 +209,7 @@ public class MainActivity extends BaseActivity {
                 sreialComm.receive();
             }
         });
-        sreialThread.start();
+//        sreialThread.start();
     }
 
     /**
@@ -564,7 +564,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        Log.d(TAG, "requestCode: " + requestCode + "----" + "resultCode:" + resultCode);
         switch (requestCode) {
             case REQUEST_CODE: {
                 if (resultCode == RESULT_OK) {//确定
