@@ -206,7 +206,7 @@ public class Transmit {
             FLAG_AND_CLASS.put(pair.first, pair.second);
             NAME_AND_CLASS.put(pair.second.getClass().getSimpleName(), pair.second);
         }
-        ((HMI) NAME_AND_CLASS.get("HMI")).setNAME_AND_CLASS(NAME_AND_CLASS);
+//        ((HMI) NAME_AND_CLASS.get("HMI")).setNAME_AND_CLASS(NAME_AND_CLASS);
     }
 
     // 处理收到的byte数组
